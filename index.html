@@ -1,12 +1,38 @@
 <!DOCTYPE html>
 <html lang="da">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Document</title>
-	<link rel="stylesheet" href="./css/style.css">
+
+	<style>
+		body {
+	margin: 0;
+	display: grid;
+	grid-template-columns: 13vw auto 13vw;
+	grid-template-rows: 10vw auto 20vw;
+	grid-template-areas:
+		"header header header"
+		". main ."
+		"footer footer footer"
+}
+
+.siteHeader {
+	grid-area: header;
+}
+
+main {
+	grid-area: main;
+}
+
+.siteFooter {
+	grid-area: footer;
+}
+	</style>
 </head>
+
 <body>
 	<a href="#content" class="sr-hidden">Skip to content</a>
 	<header class="siteHeader">
@@ -70,7 +96,7 @@
 		<section class="siteFooter__section siteFooter__quote">
 			<blockquote>"Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident optio
 				omnis aliquid. Quam laudantium quia voluptatem commodi quidem, provident amet
-				reprehenderit sit	distinctio esse aperiam, libero fugiat aut blanditiis
+				reprehenderit sit distinctio esse aperiam, libero fugiat aut blanditiis
 				explicabo."</blockquote>
 		</section>
 
@@ -92,5 +118,20 @@
 			</ul>
 		</section>
 	</footer>
+	<script>
+		function cssLoader(src) {
+			const stylesheet = document.createElement("link")
+			stylesheet.href = src
+			stylesheet.rel = "stylesheet"
+			document.getElementsByTagName("head")[0].appendChild(stylesheet)
+
+		}
+
+		document.addEventListener("DOMContentLoaded", function () {
+			cssLoader("/css/style.css")
+
+		})
+	</script>
 </body>
+
 </html>
